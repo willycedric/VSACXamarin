@@ -1,5 +1,6 @@
 ﻿#!/usr/bin/env bash
+
 if ["$APPCENTER_BRANCH" == "QA"]
 then
-/usr/libexec/plistbuddy -c "Set :CFBundleDisplayName VSCAXamarin.$APPCENTER_BRANCH" "iOS/Info.plist"
+   plutil -replace CFBundleName -string "\$(PRODUCT_NAME) \$(APPCENTER_BRANCH)" $APPCENTER_SOURCE_DIRECTORY/MyApp/Info.plist
 fi
